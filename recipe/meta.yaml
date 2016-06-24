@@ -7,7 +7,7 @@ package:
 source:
   fn: selenium-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/s/selenium/selenium-{{ version }}.tar.gz
-  md5: c7e40c360d73e267234e166f252f574c
+  sha256: 783e0064a34a026b924d0a1679d5b2ec633462e5091dd71ebd6e6d078674c597
 
 build:
 
