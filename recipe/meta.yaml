@@ -1,4 +1,4 @@
-{%set version = "2.53.5"%}
+{%set version = "3.0.1"%}
 
 package:
   name: selenium
@@ -7,7 +7,7 @@ package:
 source:
   fn: selenium-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/s/selenium/selenium-{{ version }}.tar.gz
-  sha256: 783e0064a34a026b924d0a1679d5b2ec633462e5091dd71ebd6e6d078674c597
+  sha256: 0705803349964c7a2a144f1796a5d29905fe2a09931b2bb945ee0cb4deab75d7
 
 build:
 
