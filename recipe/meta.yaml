@@ -1,4 +1,4 @@
-{%set version = "3.0.1"%}
+{%set version = "3.0.2"%}
 
 package:
   name: selenium
@@ -7,10 +7,9 @@ package:
 source:
   fn: selenium-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/s/selenium/selenium-{{ version }}.tar.gz
-  sha256: 0705803349964c7a2a144f1796a5d29905fe2a09931b2bb945ee0cb4deab75d7
+  sha256: 85daad4d09be86bddd4f45579986ac316c1909c3b4653ed471ea4519eb413c8f
 
 build:
-
   number: 0
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
@@ -18,7 +17,6 @@ requirements:
   build:
     - python
     - setuptools
-
   run:
     - python
 
@@ -41,9 +39,11 @@ test:
 
 about:
   home: https://github.com/SeleniumHQ/selenium/
-  license: Apache Software License Version 2.0
+  license: Apache-2.0
+  license_file: LICENSE
   summary: 'Python bindings for the Selenium WebDriver for automating web browser interaction.'
 
 extra:
   recipe-maintainers:
     - pmlandwehr
+    - ocefpaf
