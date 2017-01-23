@@ -3,13 +3,25 @@ About selenium
 
 Home: https://github.com/SeleniumHQ/selenium/
 
-Package license: Apache Software License Version 2.0
+Package license: Apache-2.0
 
 Feedstock license: BSD 3-Clause
 
 Summary: Python bindings for the Selenium WebDriver for automating web browser interaction.
 
 
+
+Current build status
+====================
+
+Linux: [![Circle CI](https://circleci.com/gh/conda-forge/selenium-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/selenium-feedstock)
+OSX: [![TravisCI](https://travis-ci.org/conda-forge/selenium-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/selenium-feedstock)
+Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/selenium-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/selenium-feedstock/branch/master)
+
+Current release info
+====================
+Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/selenium/badges/version.svg)](https://anaconda.org/conda-forge/selenium)
+Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/selenium/badges/downloads.svg)](https://anaconda.org/conda-forge/selenium)
 
 Installing selenium
 ===================
@@ -31,7 +43,6 @@ It is possible to list all of the versions of `selenium` available on your platf
 ```
 conda search selenium --channel conda-forge
 ```
-
 
 
 About conda-forge
@@ -67,18 +78,6 @@ Terminology
 
 **conda-forge** - the place where the feedstock and smithy live and work to
                   produce the finished article (built conda distributions)
-
-Current build status
-====================
-
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/selenium-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/selenium-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/selenium-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/selenium-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/selenium-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/selenium-feedstock/branch/master)
-
-Current release info
-====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/selenium/badges/version.svg)](https://anaconda.org/conda-forge/selenium)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/selenium/badges/downloads.svg)](https://anaconda.org/conda-forge/selenium)
 
 
 Updating selenium-feedstock
