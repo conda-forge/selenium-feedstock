@@ -40,7 +40,6 @@ test:
 about:
   home: https://github.com/SeleniumHQ/selenium/
   license: Apache-2.0
-  license_file: LICENSE
   summary: 'Python bindings for the Selenium WebDriver for automating web browser interaction.'
 
 extra:
