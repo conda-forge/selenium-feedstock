@@ -1,20 +1,15 @@
-{% set name = "selenium" %}
-{% set version = "3.4.3" %}
-{% set bundle = "tar.gz" %}
-{% set sha256 = "0c09f437f4f6754c0543d79bae4e58b8fd40b3d7cd10889eca66dd1c7af24c63" %}
-{% set build = 0 %}
+{% set version = "3.5.0" %}
 
 package:
-  name: {{ name }}
+  name: selenium
   version: {{ version }}
 
 source:
-  fn: {{ name|lower }}-{{ version }}.{{ bundle }}
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
-  sha256: {{ sha256 }}
+  url: https://pypi.io/packages/source/s/selenium/selenium-{{ version }}.tar.gz
+  sha256: 267418f5fde1a4f8c180e5b8f45bd57c6d45b1f7d8fa5ad699a48e9a98fa79a3
 
 build:
-  number: {{ build }}
+  number: 0
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
