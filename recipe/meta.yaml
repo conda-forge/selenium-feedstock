@@ -1,4 +1,4 @@
-{% set version = "3.6.0" %}
+{% set version = "3.7.0" %}
 
 package:
   name: selenium
@@ -6,16 +6,16 @@ package:
 
 source:
   url: https://pypi.io/packages/source/s/selenium/selenium-{{ version }}.tar.gz
-  sha256: 9563021c5cba084041e13c218eb531d9c6920dcfa0ba1024bb5bf2b6c0df1797
+  sha256: 70be7e090042303564ff48bedef0b34477d463056a2d282c1dbd4c4c180ef8e1
 
 build:
   number: 0
-  script: python setup.py install --single-version-externally-managed --record=record.txt
+  script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
   build:
     - python
-    - setuptools
+    - pip
   run:
     - python
 
