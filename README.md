@@ -14,14 +14,16 @@ Summary: Python bindings for the Selenium WebDriver for automating web browser i
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/selenium-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/selenium-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/selenium-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/selenium-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/selenium-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/selenium-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/selenium-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/selenium-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/selenium-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/selenium-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/selenium-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/selenium-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/selenium/badges/version.svg)](https://anaconda.org/conda-forge/selenium)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/selenium/badges/downloads.svg)](https://anaconda.org/conda-forge/selenium)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-selenium-green.svg)](https://anaconda.org/conda-forge/selenium) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/selenium.svg)](https://anaconda.org/conda-forge/selenium) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/selenium.svg)](https://anaconda.org/conda-forge/selenium) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/selenium.svg)](https://anaconda.org/conda-forge/selenium) |
 
 Installing selenium
 ===================
