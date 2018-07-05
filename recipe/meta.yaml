@@ -1,5 +1,5 @@
 {% set name = "selenium" %}
-{% set version = "3.12.0" %}
+{% set version = "3.13.0" %}
 {% set bundle = "tar.gz" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
-  sha256: b8a2630fd858636c894960726ca3c94d8277e516ea3a9d81614fb819a5844764
+  sha256: f35bb209cab740c195276a323c1b750dbcfdb9f6983e7d6e3abba9cd8838f355
 
 build:
   number: 0
