@@ -14,9 +14,8 @@ Summary: Python bindings for the Selenium WebDriver for automating web browser i
 Current build status
 ====================
 
-[![Linux](https://img.shields.io/circleci/project/github/conda-forge/selenium-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/selenium-feedstock)
-[![OSX](https://img.shields.io/travis/conda-forge/selenium-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/selenium-feedstock)
-[![Windows](https://img.shields.io/appveyor/ci/conda-forge/selenium-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/selenium-feedstock/branch/master)
+All platforms:
+[![noarch](https://img.shields.io/circleci/project/github/conda-forge/selenium-feedstock/master.svg?label=noarch)](https://circleci.com/gh/conda-forge/selenium-feedstock)
 
 Current release info
 ====================
