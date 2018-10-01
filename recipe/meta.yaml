@@ -9,7 +9,7 @@ source:
   sha256: f9ca21919b564a0a86012cd2177923e3a7f37c4a574207086e710192452a7c40
 
 build:
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
   missing_dso_whitelist:  # [osx]
     - '*'                 # [osx]
