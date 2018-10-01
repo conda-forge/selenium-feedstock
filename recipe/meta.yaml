@@ -1,4 +1,4 @@
-{% set version = "3.14.0" %}
+{% set version = "3.14.1" %}
 
 package:
   name: selenium
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/s/selenium/selenium-{{ version }}.tar.gz
-  sha256: f9ca21919b564a0a86012cd2177923e3a7f37c4a574207086e710192452a7c40
+  sha256: ab192cd046164c40fabcf44b47c66c8b12495142f4a69dcc55ea6eeef096e614
 
 build:
-  number: 1
+  number: 0
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
   missing_dso_whitelist:  # [osx]
     - '*'                 # [osx]
