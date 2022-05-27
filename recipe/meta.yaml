@@ -1,4 +1,4 @@
-{% set version = "4.1.0" %}
+{% set version = "4.2.0" %}
 
 package:
   name: selenium
@@ -9,10 +9,10 @@ source:
   - folder: dist
     fn: selenium-{{ version }}.zip
     url: https://files.pythonhosted.org/packages/py3/s/selenium/selenium-{{ version }}-py3-none-any.whl
-    sha256: 27e7b64df961d609f3d57237caa0df123abbbe22d038f2ec9e332fb90ec1a939
+    sha256: ba5b2633f43cf6fe9d308fa4a6996e00a101ab9cb1aad6fd91ae1f3dbe57f56f
   - folder: src
     url: https://github.com/SeleniumHQ/selenium/archive/refs/tags/selenium-{{ version }}.tar.gz
-    sha256: 6f8cdf423b404bb47c44bf2994ce6edc6683ba33904774ea60731eae2542d8cd
+    sha256: bb0b38c094bc3a9cc05eae30b2293ef18dfc60fb31893295473d4c1218352e97
 
 build:
   noarch: python
@@ -58,7 +58,7 @@ about:
     - src/LICENSE
     - src/NOTICE
   license: Apache-2.0
-  summary: 'Python bindings for the Selenium WebDriver for automating web browser interaction.'
+  summary: Python bindings for the Selenium WebDriver for automating web browser interaction.
   dev_url: https://github.com/SeleniumHQ/selenium
   doc_url: https://www.selenium.dev/documentation
 
