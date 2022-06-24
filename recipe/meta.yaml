@@ -1,4 +1,4 @@
-{% set version = "4.2.0" %}
+{% set version = "4.3.0" %}
 
 package:
   name: selenium
@@ -9,10 +9,10 @@ source:
   - folder: dist
     fn: selenium-{{ version }}.zip
     url: https://files.pythonhosted.org/packages/py3/s/selenium/selenium-{{ version }}-py3-none-any.whl
-    sha256: ba5b2633f43cf6fe9d308fa4a6996e00a101ab9cb1aad6fd91ae1f3dbe57f56f
+    sha256: f67402b8f973aaa98d9c55b8f9aa63532009cd1859b2222a8b9800354942d8bc
   - folder: src
     url: https://github.com/SeleniumHQ/selenium/archive/refs/tags/selenium-{{ version }}.tar.gz
-    sha256: bb0b38c094bc3a9cc05eae30b2293ef18dfc60fb31893295473d4c1218352e97
+    sha256: 759f7ac256f42fed5a5b58c1c1bc2b9cac4aabeac02773b7a50808a1d833422d
 
 build:
   noarch: python
