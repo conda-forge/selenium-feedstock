@@ -27,9 +27,9 @@ requirements:
     - pip
   run:
     - python >=3.7
-    - trio
-    - trio-websocket
-    - urllib3
+    - trio >=0.17,<1.0
+    - trio-websocket >=0.9,<1.0
+    - urllib3 >=1.26,<2.0
 
 test:
   requires:
@@ -45,9 +45,7 @@ test:
     - selenium.webdriver.edge
     - selenium.webdriver.firefox
     - selenium.webdriver.ie
-    - selenium.webdriver.opera
     - selenium.webdriver.remote
-    - selenium.webdriver.support
     - selenium.webdriver.support
   commands:
     - pip check
