@@ -1,4 +1,4 @@
-{% set version = "4.3.0" %}
+{% set version = "4.4.0" %}
 
 package:
   name: selenium
@@ -9,10 +9,10 @@ source:
   - folder: dist
     fn: selenium-{{ version }}.zip
     url: https://files.pythonhosted.org/packages/py3/s/selenium/selenium-{{ version }}-py3-none-any.whl
-    sha256: f67402b8f973aaa98d9c55b8f9aa63532009cd1859b2222a8b9800354942d8bc
+    sha256: 61c8b02788b66f08f2e61d5295afc956991e394815e33573072e68402ed4e8d5
   - folder: src
     url: https://github.com/SeleniumHQ/selenium/archive/refs/tags/selenium-{{ version }}.tar.gz
-    sha256: 759f7ac256f42fed5a5b58c1c1bc2b9cac4aabeac02773b7a50808a1d833422d
+    sha256: e70d76ce7894fa411dfe714cd3e7f5baf6749dfdefd54e5617f85c95fa4c987c
 
 build:
   noarch: python
@@ -30,7 +30,13 @@ requirements:
     - trio >=0.17,<1.0
     - trio-websocket >=0.9,<1.0
     - urllib3 >=1.26,<2.0
-
+    # urllib3[secure]
+    - pyopenssl >=0.14
+    - cryptography >=1.3.4
+    - idna >=2.0.0
+    - certifi
+    # urllib3[socks]
+    - pysocks >=1.5.6,<2.0,!=1.5.7
 test:
   requires:
     - pip
