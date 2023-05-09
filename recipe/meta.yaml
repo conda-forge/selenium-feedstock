@@ -29,9 +29,9 @@ requirements:
     - pip
   run:
     - python >=3.7
-    - trio >=0.17,<1.0
-    - trio-websocket >=0.9,<1.0
-    - urllib3 >=1.26,<2.0
+    - trio >=0.17,<1.dev0
+    - trio-websocket >=0.9,<1.dev0
+    - urllib3 >=1.26,<3
     - certifi >=2021.10.8
 test:
   requires:
