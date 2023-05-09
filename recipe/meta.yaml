@@ -1,4 +1,4 @@
-{% set version = "4.9.0" %}
+{% set version = "4.9.1" %}
 
 package:
   name: selenium
@@ -6,14 +6,14 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/s/selenium/selenium-{{ version }}.tar.gz
-    sha256: 478fae77cdfaec32adb1e68d59632c8c191f920535282abcaa2d1a3d98655624
+    sha256: 3444f4376321530c36ce8355b6b357d8cf4a7d588ce5cf772183465930bbed0e
   - fn: LICENSE-selenium-{{ version }}
-    url: 
+    url:
       - https://raw.githubusercontent.com/SeleniumHQ/selenium/selenium-{{ version }}-python/LICENSE
       - https://raw.githubusercontent.com/SeleniumHQ/selenium/selenium-{{ version }}/LICENSE
     sha256: 5e1dea875e2c2a1707eb69ca64eee1faf6a8f2df818230943d590f794d12a359
   - fn: NOTICE-selenium-{{ version }}
-    url: 
+    url:
       - https://raw.githubusercontent.com/SeleniumHQ/selenium/selenium-{{ version }}-python/NOTICE
       - https://raw.githubusercontent.com/SeleniumHQ/selenium/selenium-{{ version }}/NOTICE
     sha256: 3e4b6f37b254d80f77ed41946e6f9ddd94ad4815b4578d207a6168fde6c68ad2
