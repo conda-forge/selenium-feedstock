@@ -1,0 +1,26 @@
+diff --git a/selenium/webdriver/common/selenium_manager.py b/selenium/webdriver/common/selenium_manager.py
+index d62ffaa..f78f60a 100644
+--- a/selenium/webdriver/common/selenium_manager.py
++++ b/selenium/webdriver/common/selenium_manager.py
+@@ -39,19 +39,8 @@ class SeleniumManager:
+ 
+         :Returns: The Selenium Manager executable location
+         """
+-        platform = sys.platform
+-
+-        dirs = {
+-            "darwin": "macos",
+-            "win32": "windows",
+-            "cygwin": "windows",
+-        }
+-
+-        directory = dirs.get(platform) if dirs.get(platform) else platform
+-
+-        file = "selenium-manager.exe" if directory == "windows" else "selenium-manager"
+-
+-        path = Path(__file__).parent.joinpath(directory, file)
++        import shutil
++        path = Path(shutil.which("selenium-manager") or shutil.which("selenium-manager.exe"))
+ 
+         if not path.is_file():
+             raise WebDriverException(f"Unable to obtain working Selenium Manager binary; {path}")
