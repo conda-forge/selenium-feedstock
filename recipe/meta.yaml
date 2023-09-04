@@ -1,4 +1,4 @@
-{% set version = "4.11.2" %}
+{% set version = "4.12.0" %}
 
 package:
   name: selenium
@@ -6,7 +6,7 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/s/selenium/selenium-{{ version }}.tar.gz
-    sha256: 9f9a5ed586280a3594f7461eb1d9dab3eac9d91e28572f365e9b98d9d03e02b5
+    sha256: 95be6aa449a0ab4ac1198bb9de71bbe9170405e04b9752f4b450dc7292a21828
     patches:
       - 0000-find-manager-on-path.diff
   - fn: LICENSE-selenium-{{ version }}
@@ -22,7 +22,7 @@ source:
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv --no-deps
 
 requirements:
