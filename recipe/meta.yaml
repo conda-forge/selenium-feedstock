@@ -35,7 +35,7 @@ requirements:
     - selenium-manager =={{ version }},!={{ version }}=*_0
     {% else %}
     - selenium-manager {{ version.split('.')[:2] | join('.') }}.*
-    {% endfor %}
+    {% endif %}
     - trio >=0.17,<1.dev0
     - trio-websocket >=0.9,<1.dev0
     - urllib3 >=1.26,<3
