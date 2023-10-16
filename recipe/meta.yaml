@@ -1,4 +1,4 @@
-{% set version = "4.13.0" %}
+{% set version = "4.14.0" %}
 
 package:
   name: selenium
@@ -6,9 +6,9 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/s/selenium/selenium-{{ version }}.tar.gz
-    sha256: 3c413a4f1b8af67824703195e3b1c19cfb1c3186c799efa035d55fd59d6dd59f
+    sha256: 0d14b0d9842366f38fb5f8f842cf7c042bcfa062affc6a0a86e4d634bdd0fe54
     patches:
-      - 0000-find-manager-on-path.diff
+      - 0000-se-manager-path.diff
   - fn: LICENSE-selenium-{{ version }}
     url:
       - https://raw.githubusercontent.com/SeleniumHQ/selenium/selenium-{{ version }}-python/LICENSE
@@ -23,7 +23,7 @@ source:
 build:
   noarch: python
   number: 0
-  script: {{ PYTHON }} -m pip install . -vv --no-deps
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
@@ -36,6 +36,9 @@ requirements:
     - trio >=0.17,<1.dev0
     - trio-websocket >=0.9,<1.dev0
     - urllib3 >=1.26,<3
+  run_constrained:
+    # clean up after https://github.com/conda-forge/selenium-feedstock/pull/68
+    - selenium-manager >=4.14.0=*_1
 test:
   requires:
     - pip
