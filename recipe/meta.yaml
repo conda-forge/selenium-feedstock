@@ -34,9 +34,6 @@ requirements:
     - trio >=0.17,<1.dev0
     - trio-websocket >=0.9,<1.dev0
     - urllib3 >=1.26,<3
-  run_constrained:
-    # clean up after https://github.com/conda-forge/selenium-feedstock/pull/68
-    - selenium-manager >=4.14.0=*_1
 test:
   requires:
     - pip
