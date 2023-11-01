@@ -7,6 +7,8 @@ package:
 source:
   - url: https://pypi.io/packages/source/s/selenium/selenium-{{ version }}.tar.gz
     sha256: 1d339cb4577a2c617122ebe6342b7e9bca4cb4588a2d322c898f5df29c91df02
+    patches:
+      - 0000-fix-se-manager-path.diff
   - fn: LICENSE-selenium-{{ version }}
     url:
       - https://raw.githubusercontent.com/SeleniumHQ/selenium/selenium-{{ version }}-python/LICENSE
