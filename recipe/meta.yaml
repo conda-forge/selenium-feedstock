@@ -1,4 +1,4 @@
-{% set version = "4.15.0" %}
+{% set version = "4.15.1" %}
 
 package:
   name: selenium
@@ -6,7 +6,7 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/s/selenium/selenium-{{ version }}.tar.gz
-    sha256: 1d339cb4577a2c617122ebe6342b7e9bca4cb4588a2d322c898f5df29c91df02
+    sha256: 8f0436b5949f1d4aa742f3dff0d748b955c371be92db8b6b008bf9c9ca227de7
     patches:
       - 0000-fix-se-manager-path.diff
   - fn: LICENSE-selenium-{{ version }}
