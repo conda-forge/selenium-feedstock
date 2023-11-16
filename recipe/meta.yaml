@@ -1,4 +1,4 @@
-{% set version = "4.15.1" %}
+{% set version = "4.15.2" %}
 
 package:
   name: selenium
@@ -6,7 +6,7 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/s/selenium/selenium-{{ version }}.tar.gz
-    sha256: 8f0436b5949f1d4aa742f3dff0d748b955c371be92db8b6b008bf9c9ca227de7
+    sha256: 22eab5a1724c73d51b240a69ca702997b717eee4ba1f6065bf5d6b44dba01d48
   - fn: LICENSE-selenium-{{ version }}
     url:
       - https://raw.githubusercontent.com/SeleniumHQ/selenium/selenium-{{ version }}-python/LICENSE
@@ -25,11 +25,11 @@ build:
 
 requirements:
   host:
-    - python >=3.7
+    - python >=3.8
     - pip
   run:
     - certifi >=2021.10.8
-    - python >=3.7
+    - python >=3.8
     - selenium-manager {{ version.split('.')[:2] | join('.') }}.*
     - trio >=0.17,<1.dev0
     - trio-websocket >=0.9,<1.dev0
