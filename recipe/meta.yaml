@@ -1,4 +1,4 @@
-{% set version = "4.16.0" %}
+{% set version = "4.17.2" %}
 
 package:
   name: selenium
@@ -6,17 +6,17 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/s/selenium/selenium-{{ version }}.tar.gz
-    sha256: b2e987a445306151f7be0e6dfe2aa72a479c2ac6a91b9d5ef2d6dd4e49ad0435
+    sha256: d43d6972e516855fb242ef9ce4ce759057b115070e702e7b1c1032fe7b38d87b
   - fn: LICENSE-selenium-{{ version }}
     url:
       - https://raw.githubusercontent.com/SeleniumHQ/selenium/selenium-{{ version }}-python/LICENSE
       - https://raw.githubusercontent.com/SeleniumHQ/selenium/selenium-{{ version }}/LICENSE
-    sha256: 5e1dea875e2c2a1707eb69ca64eee1faf6a8f2df818230943d590f794d12a359
+    sha256: de658a7d3761e92b471e2f630ea99eeb3389b27820809b1e4853baabd5fbadb7
   - fn: NOTICE-selenium-{{ version }}
     url:
       - https://raw.githubusercontent.com/SeleniumHQ/selenium/selenium-{{ version }}-python/NOTICE
       - https://raw.githubusercontent.com/SeleniumHQ/selenium/selenium-{{ version }}/NOTICE
-    sha256: 3e4b6f37b254d80f77ed41946e6f9ddd94ad4815b4578d207a6168fde6c68ad2
+    sha256: 2a3429f61e1ad70d33a6fa517cb46ec183c0b0fbcce34a2183d4c56bea3c874e
 
 build:
   noarch: python
