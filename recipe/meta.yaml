@@ -1,4 +1,4 @@
-{% set version = "4.19.0" %}
+{% set version = "4.20.0" %}
 
 package:
   name: selenium
@@ -6,7 +6,7 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/s/selenium/selenium-{{ version }}.tar.gz
-    sha256: d9dfd6d0b021d71d0a48b865fe7746490ba82b81e9c87b212360006629eb1853
+    sha256: 0bd564ee166980d419a8aaf4ac00289bc152afcf2eadca5efe8c8e36711853fd
   - fn: LICENSE-selenium-{{ version }}
     url:
       - https://raw.githubusercontent.com/SeleniumHQ/selenium/selenium-{{ version }}-python/LICENSE
@@ -51,7 +51,7 @@ test:
     - selenium.webdriver.support
   commands:
     - pip check
-    - python -c "from selenium.webdriver.common.selenium_manager import SeleniumManager; assert SeleniumManager.get_binary().exists()"
+    - python -c "from selenium.webdriver.common.selenium_manager import SeleniumManager; assert SeleniumManager._get_binary().exists()"
 
 about:
   home: https://www.selenium.dev
