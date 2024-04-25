@@ -51,7 +51,7 @@ test:
     - selenium.webdriver.support
   commands:
     - pip check
-    - python -c "from selenium.webdriver.common.selenium_manager import SeleniumManager; assert SeleniumManager.get_binary().exists()"
+    - python -c "from selenium.webdriver.common.selenium_manager import SeleniumManager; assert SeleniumManager._get_binary().exists()"
 
 about:
   home: https://www.selenium.dev
