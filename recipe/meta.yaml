@@ -36,6 +36,7 @@ requirements:
     - trio-websocket >=0.9,<1
     - typing_extensions >=4.9,<5
     - urllib3 >=1.26,<3
+    - websocket-client >=1.8.0
 test:
   requires:
     - pip
@@ -59,7 +60,7 @@ about:
     - LICENSE-selenium-{{ version }}
     - NOTICE-selenium-{{ version }}
   license: Apache-2.0
-  summary: Python bindings for the Selenium WebDriver for automating web browser interaction.
+  summary: Official Python bindings for Selenium WebDriver
   dev_url: https://github.com/SeleniumHQ/selenium
   doc_url: https://www.selenium.dev/documentation
 
