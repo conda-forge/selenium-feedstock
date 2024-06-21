@@ -7,7 +7,7 @@ Home: https://www.selenium.dev
 
 Package license: Apache-2.0
 
-Summary: Python bindings for the Selenium WebDriver for automating web browser interaction.
+Summary: Official Python bindings for Selenium WebDriver
 
 Development: https://github.com/SeleniumHQ/selenium
 
