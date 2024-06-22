@@ -1,0 +1,12 @@
+diff --git a/selenium/webdriver/common/linux/selenium-manager b/selenium/webdriver/common/linux/selenium-manager
+deleted file mode 100644
+index 14bd46e..0000000
+Binary files a/selenium/webdriver/common/linux/selenium-manager and /dev/null differ
+diff --git a/selenium/webdriver/common/macos/selenium-manager b/selenium/webdriver/common/macos/selenium-manager
+deleted file mode 100644
+index f1c35bd..0000000
+Binary files a/selenium/webdriver/common/macos/selenium-manager and /dev/null differ
+diff --git a/selenium/webdriver/common/windows/selenium-manager.exe b/selenium/webdriver/common/windows/selenium-manager.exe
+deleted file mode 100644
+index cbef576..0000000
+Binary files a/selenium/webdriver/common/windows/selenium-manager.exe and /dev/null differ
