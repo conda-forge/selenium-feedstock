@@ -1,20 +1,24 @@
 diff --git a/selenium/webdriver/common/selenium_manager.py b/selenium/webdriver/common/selenium_manager.py
-index 46e23f5..2ab5341 100644
+index 46e23f5..fc7f0ab 100644
 --- a/selenium/webdriver/common/selenium_manager.py
 +++ b/selenium/webdriver/common/selenium_manager.py
-@@ -65,6 +65,15 @@ class SeleniumManager:
-             logger.debug("Selenium Manager set by env SE_MANAGER_PATH to: %s", path)
-             path = Path(path)
-         else:
+@@ -83,6 +83,19 @@ class SeleniumManager:
+                 raise WebDriverException(f"Unsupported platform/architecture combination: {sys.platform}/{arch}")
+ 
+             path = Path(__file__).parent.joinpath(location)
++            binary_name = location.split("/")[-1]
 +            raise RuntimeError(
 +                "The SE_MANAGER_PATH environment variable must be set to the location "
 +                "of the Selenium Manager binary. This should have been done by the "
 +                "selenium-manager_activate script in your Conda environment's "
-+                "etc/conda/activate.d/ directory. The most likely reason for seeing "
-+                "this error is that your Conda environment was not properly activated. "
-+                "Please activate your Conda environment and try again. Alternatively, "
-+                "you can set the SE_MANAGER_PATH environment variable manually."
++                '"$CONDA_PREFIX/etc/conda/activate.d/" directory. The most likely '
++                "reason for seeing this error is that your Conda environment has not "
++                "been properly activated. Please activate your Conda environment and "
++                "try again. Alternatively, you can set the SE_MANAGER_PATH environment "
++                "variable manually. Its expected location is "
++                f'"$CONDA_PREFIX/bin/{binary_name}".'
 +            )
-             allowed = {
-                 ("darwin", "any"): "macos/selenium-manager",
-                 ("win32", "any"): "windows/selenium-manager.exe",
++
+ 
+         if not path.is_file():
+             raise WebDriverException(f"Unable to obtain working Selenium Manager binary; {path}")
