@@ -7,6 +7,8 @@ package:
 source:
   - url: https://pypi.io/packages/source/s/selenium/selenium-{{ version }}.tar.gz
     sha256: 903c8c9d61b3eea6fcc9809dc7d9377e04e2ac87709876542cc8f863e482c4ce
+    patches:
+      - add-error-when-not-activated.patch
   - fn: LICENSE-selenium-{{ version }}
     url:
       - https://raw.githubusercontent.com/SeleniumHQ/selenium/selenium-{{ version }}-python/LICENSE
@@ -20,8 +22,12 @@ source:
 
 build:
   noarch: python
-  number: 0
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 1
+  script: |
+    rm selenium/webdriver/common/linux/selenium-manager
+    rm selenium/webdriver/common/macos/selenium-manager
+    rm selenium/webdriver/common/windows/selenium-manager.exe
+    {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
@@ -53,6 +59,11 @@ test:
   commands:
     - pip check
     - python -c "from selenium.webdriver.common.selenium_manager import SeleniumManager; assert SeleniumManager._get_binary().exists()"
+    # Ensure that the error message from 'add-error-when-not-activated.patch' is
+    # printed when the environment is not activated
+    - unset SE_MANAGER_PATH
+    - python -c "from selenium.webdriver.common.selenium_manager import SeleniumManager; assert SeleniumManager._get_binary().exists()" 2> out.txt || true
+    - grep "your Conda environment has not been properly activated" out.txt
 
 about:
   home: https://www.selenium.dev
