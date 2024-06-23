@@ -59,6 +59,11 @@ test:
   commands:
     - pip check
     - python -c "from selenium.webdriver.common.selenium_manager import SeleniumManager; assert SeleniumManager._get_binary().exists()"
+    # Ensure that the error message from 'add-error-when-not-activated.patch' is
+    # printed when the environment is not activated
+    - unset SE_MANAGER_PATH
+    - python -c "from selenium.webdriver.common.selenium_manager import SeleniumManager; assert SeleniumManager._get_binary().exists()" 2> out.txt || true
+    - grep "your Conda environment has not been properly activated" out.txt
 
 about:
   home: https://www.selenium.dev
