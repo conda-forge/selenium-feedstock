@@ -20,8 +20,12 @@ source:
 
 build:
   noarch: python
-  number: 0
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 1
+  script:
+    - |-
+      {{ PYTHON }} -c "c = __import__('pathlib').Path('selenium/webdriver/common'); [(print(b), b.unlink()) for b in c.glob('*/selenium-manager*')]"
+    - |
+      {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
