@@ -20,10 +20,18 @@ source:
 
 build:
   noarch: python
-  number: 1
+  number: 2
   script:
+    # 1. The first command removes the precompiled selenium-manager binaries.
+    # (We depend on the conda-forge version instead.)
+    # 2. The second command is optional and appends some Python code to
+    # selenium/webdriver/common/__init__.py that warns when the SE_MANAGER_PATH
+    # envvar is unset. (This helps diagnose issues where the selenium-manager
+    # binary cannot be not found because the environment is not activated.)
     - |-
       {{ PYTHON }} -c "c = __import__('pathlib').Path('selenium/webdriver/common'); [(print(b), b.unlink()) for b in c.glob('*/selenium-manager*')]"
+    - |-
+      {{ PYTHON }} -c "i = __import__('pathlib').Path('selenium/webdriver/common/__init__.py'); i.write_text(i.read_text() + '''\n\n# Added by github.com/conda-forge/selenium-feedstock\nimport os; import sys; print('WARNING: The SE_MANAGER_PATH environment variable must be set to the location of the Selenium Manager binary. This should have been done by the selenium-manager_activate script in your Conda environment\\\\'s $CONDA_PREFIX/etc/conda/activate.d/ directory. The most likely reason for seeing this warning is that your Conda environment has not been properly activated. Please activate your Conda environment and try again. Alternatively, you can set the SE_MANAGER_PATH environment variable manually. Its expected location is $CONDA_PREFIX/bin/selenium-manager', file=sys.stderr) if 'SE_MANAGER_PATH' not in os.environ else None\n''')"
     - |
       {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
@@ -57,6 +65,10 @@ test:
   commands:
     - pip check
     - python -c "from selenium.webdriver.common.selenium_manager import SeleniumManager; assert SeleniumManager._get_binary().exists()"
+    # Ensure that the warning message is printed when the environment is not activated
+    - unset SE_MANAGER_PATH
+    - python -c "from selenium.webdriver.common.selenium_manager import SeleniumManager; assert SeleniumManager._get_binary().exists()" 2> out.txt || true
+    - grep "your Conda environment has not been properly activated" out.txt
 
 about:
   home: https://www.selenium.dev
