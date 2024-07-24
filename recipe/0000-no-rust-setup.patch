@@ -1,5 +1,5 @@
 diff --git a/setup.py b/setup.py
-index b3786bf..02b333b 100644
+index a71007f..fdda74e 100644
 --- a/setup.py
 +++ b/setup.py
 @@ -19,7 +19,6 @@ from distutils.command.install import INSTALL_SCHEMES
@@ -10,13 +10,9 @@ index b3786bf..02b333b 100644
  
  
  for scheme in INSTALL_SCHEMES.values():
-@@ -81,15 +80,9 @@ setup_args = {
-         "trio~=0.17",
-         "trio-websocket~=0.9",
-         "certifi>=2021.10.8",
--        "typing_extensions~= 4.9.0",
-+        "typing_extensions>= 4.9.0",
-         "websocket-client==1.8.0",
+@@ -84,12 +83,6 @@ setup_args = {
+         "typing_extensions~=4.9",
+         "websocket-client~=1.8",
      ],
 -    'rust_extensions': [
 -        RustExtension(
