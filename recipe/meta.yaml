@@ -33,6 +33,7 @@ requirements:
   host:
     - pip
     - python >=3.8
+    - setuptools
   run:
     - certifi >=2021.10.8
     - python >=3.8
