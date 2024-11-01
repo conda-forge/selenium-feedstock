@@ -1,12 +1,12 @@
-{% set version = "4.26.0" %}
+{% set version = "4.26.1" %}
 
 package:
   name: selenium
   version: {{ version }}
 
 source:
-  - url: https://pypi.io/packages/source/s/selenium/selenium-{{ version }}.tar.gz
-    sha256: f0780f85f10310aa5d085b81e79d73d3c93b83d8de121d0400d543a50ee963e8
+  - url: https://pypi.org/packages/source/s/selenium/selenium-{{ version }}.tar.gz
+    sha256: 7640f3f08ae7f4e450f895678e8a10a55eb4e4ca18311ed675ecc4684b96b683
     patches:
       - 0000-no-rust-setup.patch
   - fn: LICENSE-selenium-{{ version }}
