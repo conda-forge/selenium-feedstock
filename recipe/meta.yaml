@@ -24,8 +24,7 @@ build:
   number: 0
   script:
     - rm setup.py || del setup.py
-    - |
-      {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
