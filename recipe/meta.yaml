@@ -8,6 +8,8 @@ package:
 source:
   - url: https://pypi.org/packages/source/s/selenium/selenium-{{ version }}.tar.gz
     sha256: e8850834c482dc93d92060586139cf8ff8be6c6f0e93db640fa65358548f426b
+    patches:
+      - 0000-fix-pyproject.patch
   - fn: LICENSE-selenium-{{ version }}
     url:
       - https://raw.githubusercontent.com/SeleniumHQ/selenium/selenium-{{ version }}-python/LICENSE
@@ -24,6 +26,7 @@ build:
   number: 0
   script:
     - rm setup.py || del setup.py
+    - echo "" >> selenium/webdriver/common/fedcm/__init__.py
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
