@@ -1,4 +1,5 @@
-{% set version = "4.26.1" %}
+{% set version = "4.27.0" %}
+{% set python_min = python_min | default("3.9") %}
 
 package:
   name: selenium
@@ -6,9 +7,9 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/s/selenium/selenium-{{ version }}.tar.gz
-    sha256: 7640f3f08ae7f4e450f895678e8a10a55eb4e4ca18311ed675ecc4684b96b683
+    sha256: e8850834c482dc93d92060586139cf8ff8be6c6f0e93db640fa65358548f426b
     patches:
-      - 0000-no-rust-setup.patch
+      - 0000-fix-pyproject.patch
   - fn: LICENSE-selenium-{{ version }}
     url:
       - https://raw.githubusercontent.com/SeleniumHQ/selenium/selenium-{{ version }}-python/LICENSE
@@ -24,19 +25,18 @@ build:
   noarch: python
   number: 0
   script:
-    - |-
-      {{ PYTHON }} -c "c = __import__('pathlib').Path('selenium/webdriver/common'); [(print(b), b.unlink()) for b in c.glob('*/selenium-manager*')]"
-    - |
-      {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    - rm setup.py || del setup.py
+    - echo "" >> selenium/webdriver/common/fedcm/__init__.py
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
     - pip
-    - python >=3.8
+    - python {{ python_min }}
     - setuptools
   run:
     - certifi >=2021.10.8
-    - python >=3.8
+    - python >={{ python_min }}
     - selenium-manager {{ version.split('.')[:2] | join('.') }}.*
     - trio >=0.17,<1.0
     - trio-websocket >=0.9,<1.0
@@ -46,6 +46,7 @@ requirements:
 test:
   requires:
     - pip
+    - python {{ python_min }}
   imports:
     - selenium
     - selenium.common
