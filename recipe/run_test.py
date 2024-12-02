@@ -18,9 +18,9 @@ class Smoketest(unittest.TestCase):
 
     def test_ff_json(self):
         """MANIFEST.in/pyproject.toml/setup.py should create JSON assets."""
-        from selenium.webdriver import firefox, firefox_profile
+        from selenium.webdriver.firefox import firefox_profile
 
-        ff_json = Path(firefox.__file__).parent / firefox_profile.WEBDRIVER_PREFERENCES
+        ff_json = Path(firefox_profile.__file__).parent / firefox_profile.WEBDRIVER_PREFERENCES
         assert ff_json.exists(), "no firefox JSON found"
 
     def test_remote_cdp(self):
