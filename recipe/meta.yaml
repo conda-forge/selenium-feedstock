@@ -1,4 +1,4 @@
-{% set version = "4.27.0" %}
+{% set version = "4.27.1" %}
 {% set python_min = python_min | default("3.9") %}
 
 package:
@@ -7,9 +7,9 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/s/selenium/selenium-{{ version }}.tar.gz
-    sha256: e8850834c482dc93d92060586139cf8ff8be6c6f0e93db640fa65358548f426b
+    sha256: 5296c425a75ff1b44d0d5199042b36a6d1ef76c04fb775b97b40be739a9caae2
     patches:
-      - 0000-fix-pyproject.patch
+      - 0000-no-rust.patch
   - fn: LICENSE-selenium-{{ version }}
     url:
       - https://raw.githubusercontent.com/SeleniumHQ/selenium/selenium-{{ version }}-python/LICENSE
@@ -25,8 +25,11 @@ build:
   noarch: python
   number: 0
   script:
-    - rm setup.py || del setup.py
-    - echo "" >> selenium/webdriver/common/fedcm/__init__.py
+    # ensure all static assets are included
+    - echo "recursive-include * *.js" >> MANIFEST.in
+    - echo "recursive-include * *.json" >> MANIFEST.in
+    # ensure all directories have `__init__.py`
+    - {{ PYTHON }} -c "from pathlib import Path; [(p / '__init__.py').touch() for p in Path('selenium').rglob('*') if p.is_dir()]"
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
@@ -59,7 +62,6 @@ test:
     - selenium.webdriver.support
   commands:
     - pip check
-    - python -c "from selenium.webdriver.common.selenium_manager import SeleniumManager; assert SeleniumManager._get_binary().exists()"
 
 about:
   home: https://www.selenium.dev

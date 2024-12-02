@@ -1,0 +1,52 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index 4f7ee07..e493285 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -37,12 +37,12 @@ dependencies = [
+ 
+ [tool.setuptools]
+ zip-safe = false
++include-package-data = true
+ 
+ [tool.setuptools.packages.find]
+ include = ["selenium*"]
+ exclude = ["test*"]
+ namespaces = false
+-# include-package-data is `true` by default in pyproject.toml
+ 
+ [project.urls]
+ Repository = "https://github.com/SeleniumHQ/selenium/"
+@@ -52,7 +52,7 @@ Documentation = "https://www.selenium.dev/documentation/overview/"
+ SourceCode = "https://github.com/SeleniumHQ/selenium/tree/trunk/py"
+ 
+ [tool.setuptools.package-data]
+-selenium_package = [
++selenium = [
+     "*.py",
+     "*.rst",
+     "*.json",
+diff --git a/setup.py b/setup.py
+index 0f93e33..8b87589 100644
+--- a/setup.py
++++ b/setup.py
+@@ -19,20 +19,12 @@ from distutils.command.install import INSTALL_SCHEMES
+ from os.path import dirname, join, abspath
+ from setuptools import setup
+ from setuptools.command.install import install
+-from setuptools_rust import Binding, RustExtension
+-
+ 
+ for scheme in INSTALL_SCHEMES.values():
+     scheme['data'] = scheme['purelib']
+ 
+ setup_args = {
+     'cmdclass': {'install': install},
+-    'rust_extensions': [
+-        RustExtension(
+-            {"selenium-manager": "selenium.webdriver.common.selenium-manager"},
+-            binding=Binding.Exec
+-        )
+-    ],
+ }
+ 
+ setup(**setup_args)
