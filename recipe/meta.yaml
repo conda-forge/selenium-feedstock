@@ -23,7 +23,7 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script:
     # ensure all static assets are included
     - echo "recursive-include * *.js" >> MANIFEST.in
