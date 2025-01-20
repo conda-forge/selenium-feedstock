@@ -1,4 +1,4 @@
-{% set version = "4.27.1" %}
+{% set version = "4.28.0" %}
 {% set python_min = python_min | default("3.9") %}
 
 package:
@@ -7,19 +7,19 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/s/selenium/selenium-{{ version }}.tar.gz
-    sha256: 5296c425a75ff1b44d0d5199042b36a6d1ef76c04fb775b97b40be739a9caae2
+    sha256: a9fae6eef48d470a1b0c6e45185d96f0dafb025e8da4b346cc41e4da3ac54fa0
     patches:
       - 0000-no-rust.patch
   - fn: LICENSE-selenium-{{ version }}
     url:
       - https://raw.githubusercontent.com/SeleniumHQ/selenium/selenium-{{ version }}-python/LICENSE
       - https://raw.githubusercontent.com/SeleniumHQ/selenium/selenium-{{ version }}/LICENSE
-    sha256: de658a7d3761e92b471e2f630ea99eeb3389b27820809b1e4853baabd5fbadb7
+    sha256: 1ee8454a0696ac46b0d5b67f85b2a0e3af2b7726e1b82cd182af60fd285bcba3
   - fn: NOTICE-selenium-{{ version }}
     url:
       - https://raw.githubusercontent.com/SeleniumHQ/selenium/selenium-{{ version }}-python/NOTICE
       - https://raw.githubusercontent.com/SeleniumHQ/selenium/selenium-{{ version }}/NOTICE
-    sha256: 2a3429f61e1ad70d33a6fa517cb46ec183c0b0fbcce34a2183d4c56bea3c874e
+    sha256: 2ad84373d31eb5422a434a5c78eca674cd55263d0f4782603523c18a5e581cf6
 
 build:
   noarch: python
