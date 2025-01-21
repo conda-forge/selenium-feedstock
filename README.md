@@ -3,7 +3,7 @@ About selenium-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/selenium-feedstock/blob/main/LICENSE.txt)
 
-Home: https://www.selenium.dev
+Home: https://www.selenium.dev/
 
 Package license: Apache-2.0
 
