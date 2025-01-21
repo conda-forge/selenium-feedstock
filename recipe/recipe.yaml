@@ -1,0 +1,76 @@
+schema_version: 1
+
+context:
+  version: 4.28.0
+  selenium_manager_version: ${{ (version | split('.'))[:2] | join('.') }}.*
+
+package:
+  name: selenium
+  version: ${{ version }}
+
+source:
+  - url: https://pypi.org/packages/source/s/selenium/selenium-${{ version }}.tar.gz
+    sha256: a9fae6eef48d470a1b0c6e45185d96f0dafb025e8da4b346cc41e4da3ac54fa0
+    patches:
+      - 0000-no-rust.patch
+  - url:
+      - https://raw.githubusercontent.com/SeleniumHQ/selenium/selenium-${{ version }}-python/LICENSE
+      - https://raw.githubusercontent.com/SeleniumHQ/selenium/selenium-${{ version }}/LICENSE
+    sha256: 1ee8454a0696ac46b0d5b67f85b2a0e3af2b7726e1b82cd182af60fd285bcba3
+    file_name: LICENSE-selenium-${{ version }}
+  - url:
+      - https://raw.githubusercontent.com/SeleniumHQ/selenium/selenium-${{ version }}-python/NOTICE
+      - https://raw.githubusercontent.com/SeleniumHQ/selenium/selenium-${{ version }}/NOTICE
+    sha256: 2ad84373d31eb5422a434a5c78eca674cd55263d0f4782603523c18a5e581cf6
+    file_name: NOTICE-selenium-${{ version }}
+
+build:
+  number: 0
+  noarch: python
+  script:
+    - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
+
+requirements:
+  host:
+    - pip
+    - python ${{ python_min }}.*
+    - setuptools
+  run:
+    - certifi >=2021.10.8
+    - python >=${{ python_min }}
+    - selenium-manager ${{ selenium_manager_version }}
+    - trio >=0.17,<1.0
+    - trio-websocket >=0.9,<1.0
+    - typing_extensions >=4.9,<5.0
+    - urllib3 >=1.26,<3
+    - websocket-client >=1.8,<2.0
+
+tests:
+  - python:
+      pip_check: true
+      imports:
+        - selenium
+        - selenium.common
+        - selenium.webdriver.common
+        - selenium.webdriver.chrome
+        - selenium.webdriver.chromium
+        - selenium.webdriver.edge
+        - selenium.webdriver.firefox
+        - selenium.webdriver.remote
+        - selenium.webdriver.support
+
+about:
+  license_file:
+    - LICENSE-selenium-${{ version }}
+    - NOTICE-selenium-${{ version }}
+  license: Apache-2.0
+  summary: Official Python bindings for Selenium WebDriver
+  homepage: https://www.selenium.dev
+  repository: https://github.com/SeleniumHQ/selenium
+  documentation: https://www.selenium.dev/documentation
+
+extra:
+  recipe-maintainers:
+    - pmlandwehr
+    - ocefpaf
+    - bollwyvl
