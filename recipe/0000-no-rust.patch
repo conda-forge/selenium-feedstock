@@ -1,52 +1,25 @@
 diff --git a/pyproject.toml b/pyproject.toml
-index 4f7ee07..e493285 100644
+index ae7d68d..5f3301e 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
-@@ -37,12 +37,12 @@ dependencies = [
+@@ -1,5 +1,7 @@
+ [build-system]
+-requires = ["setuptools", "setuptools-rust"]
++# [conda-forge] avoid build-time rust
++# requires = ["setuptools", "setuptools-rust"]
++requires = ["setuptools"]
+ build-backend = "setuptools.build_meta"
  
- [tool.setuptools]
- zip-safe = false
-+include-package-data = true
- 
- [tool.setuptools.packages.find]
- include = ["selenium*"]
- exclude = ["test*"]
+ [project]
+@@ -43,8 +45,9 @@ exclude = ["test*"]
  namespaces = false
--# include-package-data is `true` by default in pyproject.toml
+ # include-package-data is `true` by default in pyproject.toml
+ 
+-[[tool.setuptools-rust.bins]]
+-target = "selenium.webdriver.common.selenium-manager"
++# [conda-forge] shipped by selenium-manager-feedstock
++# [[tool.setuptools-rust.bins]]
++# target = "selenium.webdriver.common.selenium-manager"
  
  [project.urls]
  Repository = "https://github.com/SeleniumHQ/selenium/"
-@@ -52,7 +52,7 @@ Documentation = "https://www.selenium.dev/documentation/overview/"
- SourceCode = "https://github.com/SeleniumHQ/selenium/tree/trunk/py"
- 
- [tool.setuptools.package-data]
--selenium_package = [
-+selenium = [
-     "*.py",
-     "*.rst",
-     "*.json",
-diff --git a/setup.py b/setup.py
-index 0f93e33..8b87589 100644
---- a/setup.py
-+++ b/setup.py
-@@ -19,20 +19,12 @@ from distutils.command.install import INSTALL_SCHEMES
- from os.path import dirname, join, abspath
- from setuptools import setup
- from setuptools.command.install import install
--from setuptools_rust import Binding, RustExtension
--
- 
- for scheme in INSTALL_SCHEMES.values():
-     scheme['data'] = scheme['purelib']
- 
- setup_args = {
-     'cmdclass': {'install': install},
--    'rust_extensions': [
--        RustExtension(
--            {"selenium-manager": "selenium.webdriver.common.selenium-manager"},
--            binding=Binding.Exec
--        )
--    ],
- }
- 
- setup(**setup_args)
