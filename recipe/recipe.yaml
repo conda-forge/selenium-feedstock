@@ -28,11 +28,6 @@ build:
   number: 0
   noarch: python
   script:
-    # ensure all static assets are included
-    - echo "recursive-include * *.js" >> MANIFEST.in
-    - echo "recursive-include * *.json" >> MANIFEST.in
-    # ensure all directories have `__init__.py`
-    - ${{ PYTHON }} -c "from pathlib import Path; [(p / '__init__.py').touch() for p in Path('selenium').rglob('*') if p.is_dir()]"
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
 
 requirements:
