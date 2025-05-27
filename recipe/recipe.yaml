@@ -72,7 +72,9 @@ tests:
     requirements:
       run:
         - python ${{ python_min }}.*
-    script: python run_test.py
+    script:
+      file: run_test.py
+      interpreter: python
 
 about:
   license_file:
