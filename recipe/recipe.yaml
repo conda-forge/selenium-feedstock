@@ -42,13 +42,13 @@ requirements:
     - python ${{ python_min }}.*
     - setuptools
   run:
-    - certifi >=2025.4.26
+    - certifi >=2025.6.15
     - python >=${{ python_min }}
     - selenium-manager ${{ selenium_manager_version }}
-    - trio >=0.30.0,<1.0
+    - trio >=0.30.0,<0.31.0
     - trio-websocket >=0.12.2,<0.13.0
-    - typing_extensions >=4.13.2,<4.14.0
-    - urllib3 >=2.4.0,<2.5.0
+    - typing_extensions >=4.14.0,<4.15
+    - urllib3 >=2.5.0,<2.6.0
     - websocket-client >=1.8.0,<1.9.0
 
 tests:
