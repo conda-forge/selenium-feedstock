@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "4.33.0"
+  version: "4.34.0"
   selenium_manager_version: ${{ (version | split('.'))[:2] | join('.') }}.*
 
 package:
@@ -11,7 +11,7 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/s/selenium/selenium-${{ version }}.tar.gz
-    sha256: d90974db95d2cdeb34d2fb1b13f03dc904f53e6c5d228745b0635ada10cd625d
+    sha256: 8b7eb05a0ed22f9bb2187fd256c28630824ad01d8397b4e68bc0af7dabf26c80
     patches:
       - 0000-no-rust.patch
   - url:
@@ -42,13 +42,13 @@ requirements:
     - python ${{ python_min }}.*
     - setuptools
   run:
-    - certifi >=2025.4.26
+    - certifi >=2025.6.15
     - python >=${{ python_min }}
     - selenium-manager ${{ selenium_manager_version }}
-    - trio >=0.30.0,<1.0
+    - trio >=0.30.0,<0.31.0
     - trio-websocket >=0.12.2,<0.13.0
-    - typing_extensions >=4.13.2,<4.14.0
-    - urllib3 >=2.4.0,<2.5.0
+    - typing_extensions >=4.14.0,<4.15
+    - urllib3 >=2.5.0,<2.6.0
     - websocket-client >=1.8.0,<1.9.0
 
 tests:
