@@ -1,26 +1,12 @@
 diff --git a/pyproject.toml b/pyproject.toml
-index efb3b4f..ab0f873 100644
+index 2d7737f..98377d5 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
-@@ -1,5 +1,7 @@
+@@ -1,5 +1,6 @@
  [build-system]
 -requires = ["setuptools", "setuptools-rust"]
 +# [conda-forge] avoid build-time rust
-+# requires = ["setuptools", "setuptools-rust"]
 +requires = ["setuptools"]
  build-backend = "setuptools.build_meta"
  
  [project]
-@@ -49,9 +51,9 @@ include = ["selenium*"]
- exclude = ["test*"]
- namespaces = true
- # include-package-data is `true` by default in pyproject.toml
--
--[[tool.setuptools-rust.bins]]
--target = "selenium.webdriver.common.selenium-manager"
-+# [conda-forge] shipped by selenium-manager-feedstock
-+# [[tool.setuptools-rust.bins]]
-+# target = "selenium.webdriver.common.selenium-manager"
- 
- [tool.setuptools.package-data]
- "*" = [
