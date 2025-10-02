@@ -74,7 +74,7 @@ about:
   summary: Official Python bindings for Selenium WebDriver
   homepage: https://www.selenium.dev
   repository: https://github.com/SeleniumHQ/selenium
-  documentation: https://www.selenium.dev/documentation
+  documentation: https://www.selenium.dev/documentation/webdriver
 
 extra:
   recipe-maintainers:
