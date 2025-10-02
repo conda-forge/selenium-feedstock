@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "4.35.0"
+  version: "4.36.0"
   selenium_manager_version: ${{ (version | split('.'))[:2] | join('.') }}.*
 
 package:
@@ -11,7 +11,7 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/s/selenium/selenium-${{ version }}.tar.gz
-    sha256: 83937a538afb40ef01e384c1405c0863fa184c26c759d34a1ebbe7b925d3481c
+    sha256: 0eced83038736c3a013b824116df0b6dbb83e93721545f51b680451013416723
     patches:
       - 0000-no-rust.patch
 
@@ -35,11 +35,11 @@ requirements:
     - certifi >=2025.6.15
     - python >=${{ python_min }}
     - selenium-manager ${{ selenium_manager_version }}
-    - trio >=0.30.0,<0.31.0
-    - trio-websocket >=0.12.2,<0.13.0
-    - typing_extensions >=4.14.0,<4.15.0
-    - urllib3 >=2.5.0,<2.6.0
-    - websocket-client >=1.8.0,<1.9.0
+    - trio >=0.30.0,<1.0
+    - trio-websocket >=0.12.2,<1.0
+    - typing_extensions >=4.14.0,<5.0
+    - urllib3 >=2.5.0,<4.0
+    - websocket-client >=1.8.0,<2.0
 
 tests:
   - python:
@@ -74,7 +74,7 @@ about:
   summary: Official Python bindings for Selenium WebDriver
   homepage: https://www.selenium.dev
   repository: https://github.com/SeleniumHQ/selenium
-  documentation: https://www.selenium.dev/documentation
+  documentation: https://www.selenium.dev/documentation/webdriver
 
 extra:
   recipe-maintainers:
