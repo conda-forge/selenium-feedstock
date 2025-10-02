@@ -11,7 +11,7 @@ Summary: Official Python bindings for Selenium WebDriver
 
 Development: https://github.com/SeleniumHQ/selenium
 
-Documentation: https://www.selenium.dev/documentation
+Documentation: https://www.selenium.dev/documentation/webdriver
 
 Current build status
 ====================
