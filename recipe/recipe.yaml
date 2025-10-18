@@ -32,12 +32,12 @@ requirements:
     - python ${{ python_min }}.*
     - setuptools
   run:
-    - certifi >=2025.6.15
+    - certifi >=2025.10.5
     - python >=${{ python_min }}
     - selenium-manager ${{ selenium_manager_version }}
-    - trio >=0.30.0,<1.0
+    - trio >=0.31.0,<1.0
     - trio-websocket >=0.12.2,<1.0
-    - typing_extensions >=4.14.0,<5.0
+    - typing_extensions >=4.15.0,<5.0
     - urllib3 >=2.5.0,<4.0
     - websocket-client >=1.8.0,<2.0
 
@@ -46,7 +46,7 @@ tests:
       pip_check: true
       python_version:
         - ${{ python_min }}.*
-        - 3.13.*
+        - 3.14.*
       imports:
         - selenium
         - selenium.common
