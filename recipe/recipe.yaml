@@ -4,6 +4,7 @@ schema_version: 1
 context:
   version: "4.38.0"
   selenium_manager_version: ${{ (version | split('.'))[:2] | join('.') }}.*
+  python_check_max: "3.14"
 
 package:
   name: selenium
@@ -46,7 +47,7 @@ tests:
       pip_check: true
       python_version:
         - ${{ python_min }}.*
-        - 3.14.*
+        - ${{ python_check_max }}.*
       imports:
         - selenium
         - selenium.common
@@ -64,7 +65,6 @@ tests:
         - python ${{ python_min }}.*
     script:
       file: run_test.py
-      interpreter: python
 
 about:
   license_file:
