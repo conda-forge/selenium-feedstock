@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "4.41.0"
+  version: "4.42.0"
   selenium_manager_version: ${{ (version | split('.'))[:2] | join('.') }}.*
   python_check_max: "3.14"
 
@@ -12,7 +12,7 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/s/selenium/selenium-${{ version }}.tar.gz
-    sha256: 003e971f805231ad63e671783a2b91a299355d10cefb9de964c36ff3819115aa
+    sha256: 4c8ebd84ff96505db4277223648f12e2799e92e13169bc69633a6b24eb066c72
     patches:
       - 0000-no-rust.patch
 
