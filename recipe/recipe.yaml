@@ -43,6 +43,11 @@ requirements:
     - websocket-client >=1.8.0,<2.0
 
 tests:
+  - package_contents:
+      strict: true
+      site_packages:
+        - selenium/**
+        - selenium-${{ version }}.dist-info/**
   - python:
       pip_check: true
       python_version:
