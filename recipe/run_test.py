@@ -1,4 +1,5 @@
 """Verify hacks maintain upstream packaging intent."""
+
 import unittest
 from pathlib import Path
 
@@ -16,12 +17,12 @@ class Smoketest(unittest.TestCase):
 
         webelement._load_js()
 
-    def test_ff_json(self):
-        """MANIFEST.in/pyproject.toml/setup.py should create JSON assets."""
+    def test_ff_profile(self):
+        """MANIFEST.in/pyproject.toml/setup.py previously created JSON assets."""
         from selenium.webdriver.firefox import firefox_profile
 
-        ff_json = Path(firefox_profile.__file__).parent / firefox_profile.WEBDRIVER_PREFERENCES
-        assert ff_json.exists(), "no firefox JSON found"
+        profile = firefox_profile.FirefoxProfile
+        assert profile, "won't get here if something is missing"
 
     def test_remote_cdp(self):
         """CDP should import."""
