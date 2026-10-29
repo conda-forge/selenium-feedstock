@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "4.51.0"
+  version: "4.52.0"
   selenium_manager_version: ${{ (version | split('.'))[:2] | join('.') }}.*
   python_check_max: "3.14"
 
@@ -12,7 +12,7 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/s/selenium/selenium-${{ version }}.tar.gz
-    sha256: 6bec9bd8d9b6599f850b0f6e9fb06d44d2e4245adccd11ae02c9d5cde7596276
+    sha256: 40f423c598cc85390c403ef626c9d3457c1ae834d4cf1f38637ebba3cb6f0d7a
     patches:
       - 0000-no-rust.patch
 
@@ -25,7 +25,7 @@ build:
     - echo "recursive-include * *.json" >> MANIFEST.in
     # ensure all directories have `__init__.py`
     - ${{ PYTHON }} -c "from pathlib import Path; [(p / '__init__.py').touch() for p in Path('selenium').rglob('*') if p.is_dir()]"
-    - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
+    - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check --check-build-dependencies
 
 requirements:
   host:
@@ -33,7 +33,7 @@ requirements:
     - python ${{ python_min }}.*
     - setuptools
   run:
-    - certifi >=2026.2.25
+    - certifi >=2026.10.23
     - python >=${{ python_min }}
     - selenium-manager ${{ selenium_manager_version }}
     - trio >=0.31.0,<1.0
