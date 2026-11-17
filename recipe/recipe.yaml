@@ -11,7 +11,7 @@ package:
   version: ${{ version }}
 
 source:
-  - url: https://pypi.org/packages/source/s/selenium/selenium-${{ version }}.tar.gz
+  - url: https://files.pythonhosted.org/packages/source/s/selenium/selenium-${{ version }}.tar.gz
     sha256: 40f423c598cc85390c403ef626c9d3457c1ae834d4cf1f38637ebba3cb6f0d7a
     patches:
       - 0000-no-rust.patch
