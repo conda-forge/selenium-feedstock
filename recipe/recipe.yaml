@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "4.53.0"
+  version: "4.54.0"
   selenium_manager_version: ${{ (version | split('.'))[:2] | join('.') }}.*
   python_check_max: "3.15"
 
@@ -12,7 +12,7 @@ package:
 
 source:
   - url: https://files.pythonhosted.org/packages/source/s/selenium/selenium-${{ version }}.tar.gz
-    sha256: efb45b129cbd7f46da99c82e7d327978bda29ed987223465c341f96404a86a2c
+    sha256: ed5ad5a8c77372ac824ed736ac627d02f41c5bf38be33467f15aaf5a4e038888
     patches:
       - 0000-no-rust.patch
 
